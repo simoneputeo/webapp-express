@@ -1,5 +1,8 @@
 const connection = require("../data/db");
 
+require("dotenv").config();
+const BASE_URL = process.env.BASE_URL;
+
 // Index
 
 function index(req, res) {
@@ -8,8 +11,8 @@ function index(req, res) {
   connection.query(sql, (err, results) => {
     if (err) return res.status(500).json({ error: "Internal server error" });
     const movies = results.map((movie) => {
-      if (movie.cover) {
-        movie.cover = `${BASE_URL}/img/movies_cover/${movie.cover}`;
+      if (movie.image) {
+        movie.image = `${BASE_URL}/img/movies_cover/${movie.image}`;
       }
       return movie;
     });
