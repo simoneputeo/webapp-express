@@ -11,7 +11,7 @@ const moviesRouter = require("./routers/moviesRouter.js");
 const notFound = require("./middlewares/notFound.js");
 const errorsHandler = require("./middlewares/errorsHandler.js");
 
-app.use(cors({ origin: "${fEApp}" })); // middleware cors
+app.use(cors({ origin: `${fEApp}` })); // middleware cors
 app.use(express.static("public")); // middleware assets statici
 app.use(express.json()); // middleware body parser
 
